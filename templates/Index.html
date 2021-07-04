@@ -1,0 +1,39 @@
+{% include "Header.html" %}
+
+<div class="container">
+    {# 3 products#}
+    <div class="row text-center">
+        {% for product in products %}
+            <div class="m-auto">
+                <div class="card mb-2 mt-2" style="width: 18rem;">
+                    <img src="{{ photos.1.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Dolore dolorum eligendi eum fuga impedit iste libero magnam minima
+                            natus odit pariatur perspiciatis quisquam, quos repudiandae vitae? Eum itaque nesciunt
+                            sapiente! .</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        {#  3 products  #}
+        {#  more products  #}
+        <div class="m-auto">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    More products
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for product in products %}
+                        <li class="list-group-item">{{ product.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {#  more products  #}
+    </div>
+</div>
+
+{% include "Footer.html" %}
