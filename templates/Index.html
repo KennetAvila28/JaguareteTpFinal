@@ -1,39 +1,38 @@
 {% include "Header.html" %}
-
+{% load static %}
+<link rel="stylesheet" href="static/css/index.css" type="text/css">
 <div class="container">
     {# 3 products#}
     <div class="row text-center">
-        {% for product in products %}
+        {% for product in topProducts %}
             <div class="m-auto">
-                <div class="card mb-2 mt-2" style="width: 18rem;">
-                    <img src="{{ photos.1.url }}" class="card-img-top" alt="...">
+                <div class="card mb-2 mt-2" style="width: 23rem; min-height: 618px;">
+                    <img src="media/{{ product.image }}" class="card-img-top img-thumbnail" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Dolore dolorum eligendi eum fuga impedit iste libero magnam minima
-                            natus odit pariatur perspiciatis quisquam, quos repudiandae vitae? Eum itaque nesciunt
-                            sapiente! .</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <a href="{% url 'details' product.id %}" class="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
-        {#  3 products  #}
-        {#  more products  #}
-        <div class="m-auto">
-            <div class="card" style="width: 18rem;">
+    </div>
+    {#  3 products  #}
+    {#  more products  #}
+    <div class="container">
+        <div class="mb-2">
+            <div class="card">
                 <div class="card-header">
                     More products
                 </div>
                 <ul class="list-group list-group-flush">
                     {% for product in products %}
-                        <li class="list-group-item">{{ product.name }}</li>
+                        <li class="list-group-item">{{ product.title }}:{{ product.description }}</li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
-        {#  more products  #}
     </div>
+    {#  more products  #}
 </div>
-
 {% include "Footer.html" %}

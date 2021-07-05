@@ -1,21 +1,23 @@
 from django.shortcuts import render
-import requests
+from .models import Product
 
 
 def index(request):
-    url = "https://jsonplaceholder.typicode.com/users"
-    ur2 = "https://jsonplaceholder.typicode.com/photos"
-    r = requests.get(url)
-    r2 = requests.get(ur2)
-    json = r.json()
-    json2 = r2.json()
     return render(request, 'Index.html', {
         'title': "Jaguarete - Ecommerce",
-        'products': json,
-        'photos': json2
+        'topProducts': Product.objects.all()[:3],
+        'products': Product.objects.all()
     })
+
+
 def about(request):
-    return render(request,'About.html', {
+    return render(request, 'About.html', {
         'title': "About"
     })
 
+
+def details(request, id):
+    product = Product.objects.get(pk=id)
+    return render(request, 'user/products/Details.html', {
+        'product': product
+    })
