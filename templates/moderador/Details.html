@@ -1,5 +1,6 @@
 {% include "header.html" %}
-{% load userdetails %}
+{% load modImage %}
+{% load static %}
 <div class="container">
     <div class="card mb-3" style="min-height: 400px;">
         <div class="m-auto">
@@ -8,7 +9,7 @@
         <div class="row g-0">
             <div class="col-md-4">
                 {% if product.image %}
-                    <img src="{{ product.image|userdetails }}" class="img-fluid rounded-start" alt="product image">
+                    <img src="{{ product.image|modImage }}" class="img-fluid rounded-start" alt="product image">
                 {% else %}
                     <img src="http://placehold.it/256" class="img-fluid rounded-start" alt="product image">
                 {% endif %}

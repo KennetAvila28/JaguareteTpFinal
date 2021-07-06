@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=50, unique=True)),
-                ('image', models.ImageField(blank=True, upload_to='users/%Y/%m/%d/')),
+                ('image', models.ImageField(blank=True, upload_to='product/%Y/%m/%d/')),
                 ('description', models.TextField(default='')),
                 ('price', models.DecimalField(decimal_places=2, default=0.0, max_digits=10)),
                 ('created', models.DateTimeField(auto_now_add=True)),

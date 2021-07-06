@@ -1,0 +1,11 @@
+.asteriskField {
+    color: red;
+}
+
+label {
+    font-size: 20px;
+}
+#blah{
+    max-width: 256px;
+    min-height: 256px;
+}
