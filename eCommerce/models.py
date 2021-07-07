@@ -36,8 +36,5 @@ class Product(models.Model):
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='User')
-    count = models.PositiveIntegerField(default=0)
-    subtotal = models.DecimalField(default=0.00, max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return f'the user {self.user} have {self.count} items in the cart. the subtotal is ${self.subtotal}'
+    product = models.ManyToManyField(Product)
+    total = models.DecimalField(default=0.00, max_digits=10, decimal_places=2)

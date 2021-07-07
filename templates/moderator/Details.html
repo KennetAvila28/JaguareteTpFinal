@@ -21,8 +21,8 @@
                     <div class="row">
                         <p class="card-text mxl-auto"><strong class="text-muted">Price: ${{ product.price }}  </strong>
                         </p>
-                        <button class="btn btn-primary mx-auto">Add to cart <i class="fa fa-cart-plus"
-                                                                               aria-hidden="true"></i></button>
+                        <a href="{% url 'update' product.id %}" class="btn btn-warning ml-5">Edit </a>
+                        <a href="{% url 'delete' product.id %}" class="btn btn-danger ml-3">REMOVE</a>
                     </div>
 
                 </div>
