@@ -9,6 +9,7 @@
             <th scope="col">Title</th>
             <th scope="col">price</th>
             <th scope="col">Category</th>
+            <th scope="col">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -17,12 +18,19 @@
                 <td>{{ product.title }}</td>
                 <td>{{ product.price }}</td>
                 <td>{{ product.category.description }}</td>
+                {% if user.is_superuser %}
+                    <td><a href="{% url 'detailsmod' product.id %}" class="btn btn-primary">Details</a></td>
+                {% else %}
+                    <td><a href="{% url 'details' product.id %}" class="btn btn-primary">Details</a></td>
+                {% endif %}
             </tr>
         {% empty %}
             <tr>
                 <td>No results</td>
                 <td>No results</td>
                 <td>No results</td>
+                <td>No results</td>
+
             </tr>
         {% endfor %}
         </tbody>

@@ -129,7 +129,7 @@ def addtocart(request, id):
     cartU = Cart.objects.get_or_create(user_id=request.user.id)[0]
     cartU.user = User.objects.get(pk=request.user.id)
     cartU.product.add(product)
-    cartU.total += product.price
+    cartU.total = cartU.total + product.price
     cartU.save()
     return cart(request)
 
