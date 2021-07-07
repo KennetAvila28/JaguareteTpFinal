@@ -9,6 +9,7 @@ import eCommerce.views
 app_name = 'jaguarete'
 urlpatterns = [
                   path('', eCommerce.views.index, name='Home'),
+                  path('signin', eCommerce.views.signin),
                   path('about', eCommerce.views.about),
                   path('admin/', admin.site.urls),
                   path('details/<int:id>', eCommerce.views.details, name='details'),
