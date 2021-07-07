@@ -1,8 +1,6 @@
-from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse, reverse_lazy, resolve
-from django.views.generic import CreateView, FormView, UpdateView, DeleteView
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.views.generic import CreateView
 from .Form import ProductForm
 
 from .models import Product
@@ -57,11 +55,7 @@ def update(request, id):
         return redirect('Home')
     return render(request, 'moderador/Update.html', {
         'form': form,
-<<<<<<< HEAD
-        'id':id
-=======
         'id': id
->>>>>>> 37c71f1bbc82e49ec11d83d679befdf96f60ff79
     })
 
 
@@ -69,8 +63,3 @@ def delete(request, id):
     product = Product.objects.get(pk=id)
     product.delete()
     return redirect('Home')
-<<<<<<< HEAD
-=======
-=======
->>>>>>> parent of 0e75ea2 (feat:Update and delete pages)
->>>>>>> 37c71f1bbc82e49ec11d83d679befdf96f60ff79
